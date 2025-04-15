@@ -1,0 +1,22 @@
+﻿@page "/"
+
+<PageTitle>DnD 10k</PageTitle>
+
+<h1>DnD 10k</h1>
+
+<button @onclick="Roll" class="btn btn-primary mt-2">Roll</button>
+
+<br>
+<br>
+
+<label>@Result</label>
+
+@code {
+    private string Result { get; set; } = string.Empty;
+
+    private void Roll()
+    {
+       var idx = Random.Shared.Next(Database.Entries.Length);
+       Result = Database.Entries[idx];
+    }
+}
